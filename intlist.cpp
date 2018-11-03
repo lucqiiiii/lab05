@@ -35,11 +35,11 @@ bool IntList::contains(int value) const {
 
 // returns maximum value in list, or 0 if empty list
 int IntList::max() const {
-    Node *n = first;
-    int max = n -> info;
     if(first == 0){
         return 0; 
     }
+    Node *n = first;
+    int max = n -> info;
     while(n){
         if((n -> info) >= max){
             max = n -> info;
@@ -52,11 +52,11 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    Node *n = first;
-    double sum = 0;
     if(first == 0){
         return 0.0;
     }
+    Node *n = first;
+    double sum = 0;
     while(n){
         sum += n -> info;
         n = n -> next;
