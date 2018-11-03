@@ -24,25 +24,60 @@ bool IntList::contains(int value) const {
     Node *n = first;
     while(n){
         if(n -> info != value){
-            
-    return false; // REPLACE THIS NON-SOLUTION
+           n = n -> next;
+	}
+	else{
+	   return true;
+	}
+    } 
+    return false; 
 }
 
 // returns maximum value in list, or 0 if empty list
 int IntList::max() const {
-    return 0; // REPLACE THIS NON-SOLUTION
-    
+    Node *n = first;
+    int max = n -> info;
+    if(first == 0){
+        return 0; 
+    }
+    while(n){
+        if((n -> info) >= max){
+            max = n -> info;
+        }
+        n = n -> next;                
+    }
+    return max;
 }
 
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    return 0.0; // REPLACE THIS NON-SOLUTION
+    Node *n = first;
+    double sum = 0;
+    if(first == 0){
+        return 0.0;
+    }
+    while(n){
+        sum += n -> info;
+        n = n -> next;
+    }
+    return (sum/count());
 }
 
 // inserts value as new node at beginning of list
 void IntList::insertFirst(int value) {
     // IMPLEMENT
+    if(first == 0){
+        first = new Node;
+        first -> info = value;
+        first -> next = 0;
+    }
+    else{
+        Node *n = new Node;
+        n -> info = value;
+        n -> next = first;
+        first = n;
+    }
 }
 
 // DO NOT CHANGE ANYTHING BELOW (READ IT THOUGH)
